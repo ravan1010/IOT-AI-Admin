@@ -35,16 +35,9 @@ app.use('/api', Details);
 
 const PORT = 5001;
 mongoose.connect('mongodb+srv://suhasnayaj_db_user:YGrnAW1flbWdv1g0@iot-aipay.ded0rc6.mongodb.net/?appName=IOT-AIpay')
-  .then(() => {
-    console.log('✅ MongoDB Connected...');
-    
-    // ONLY start the server if the DB connection is successful
-  })
-  .catch((err) => {
-    console.error('❌ Database connection failed:', err.message);
-    // Exit process with failure
-    process.exit(1);
-  });
+.then(() => console.log("✅ MongoDB connected"))
+.catch((err) => console.error("❌ MongoDB error:", err));
+
 
 
 
