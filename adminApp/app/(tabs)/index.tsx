@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import { Alert, Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BleAdvertiser from 'react-native-ble-advertiser';
 
@@ -7,6 +7,16 @@ import Bluetooth_permission from '../../hooks/bluetooth_permission';
 
 export default function HomeScreen() {
   const { requestPermissions } = Bluetooth_permission();
+
+  const removeValue = async () => {
+  try {
+    await AsyncStorage.removeItem('user_uuid')
+  } catch(e) {
+    // remove error
+    console.error(e)
+  }
+  console.log('Done.')
+}
   
   // 1. Create a state for the UUID
   const [uuid, setUuid] = useState<string | null>(null);
@@ -61,7 +71,13 @@ export default function HomeScreen() {
         <View style={styles.button}>
           {/* 5. Handle the loading state or null state */}
           <Text style={styles.title}>UUID: {uuid}</Text>
-        </View>
+            <TouchableOpacity
+                style={styles.button} 
+                onPress={removeValue}
+              >
+                <Text style={styles.title}>Delete Local Data</Text>
+              </TouchableOpacity>
+            </View>
       </View>
   );
 }

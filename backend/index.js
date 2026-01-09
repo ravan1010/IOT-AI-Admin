@@ -26,6 +26,6 @@ mongoose.connect('mongodb+srv://suhasnayaj_db_user:YGrnAW1flbWdv1g0@iot-aipay.de
     process.exit(1);
   });
 
-  app.listen(PORT, '0.0.0.0',() => {
+  app.listen(PORT, () => {
       console.log(`🚀 Server running on port ${PORT}`);
     });
