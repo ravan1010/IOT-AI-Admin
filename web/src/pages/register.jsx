@@ -7,7 +7,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://iot-ai-admin.onrender.com/api/register', formData);
+      const response = await axios.post('http://localhost:5001/api/register', formData);
       alert(response.data.msg);
     } catch (err) {
       alert(err.response.data.msg || "Registration failed");

@@ -1,5 +1,4 @@
 import express from 'express';
-import {} from './routes/details.js'; // Import routes properly
 import cors from 'cors';
 import mongoose from 'mongoose';
 import Details from './routes/details.js'
@@ -26,10 +25,11 @@ app.use('/api', Details);
 
 
 
-// app.use(express.static(path.join(__dirname, "../frontend/dist")))
+// app.use(express.static(path.join(__dirname, "../frontend/dist"))) 
 // app.get("/slug", (req, res) => {
 //   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 // })
+
 
 
 
